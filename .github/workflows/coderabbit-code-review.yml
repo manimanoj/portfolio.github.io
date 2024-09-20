@@ -1,0 +1,19 @@
+name: CodeRabbit Code Review
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  coderabbit-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run CodeRabbit Code Review
+        uses: coderabbit/quality-check@v1
+        with:
+          api-key: ${{ secrets.CODERABBIT_API_KEY }}
